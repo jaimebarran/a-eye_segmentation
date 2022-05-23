@@ -127,3 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Folders
+3DUnet_TF1/Data/
+3DUnet_TF1/h5_train/
+3DUnet_TF1/h5_test/
+3DUnet_TF1/logdir/
+3DUnet_TF1/modeldir/
+3DUnet_TF1/result/
