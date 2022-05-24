@@ -136,3 +136,6 @@ dmypy.json
 3DUnet_TF1/model/modeldir/
 3DUnet_TF1/model/result/
 3DUnet_TF1/model/eval/.*
+
+# Files
+*.pickle
