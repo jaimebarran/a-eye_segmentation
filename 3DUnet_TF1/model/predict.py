@@ -4,6 +4,7 @@ import argparse
 import tensorflow as tf
 from network import Unet_3D
 import generate_h5
+import pickle
 
 """
 This file provides configuration to build U-NET for semantic segmentation.
@@ -14,8 +15,8 @@ This file provides configuration to build U-NET for semantic segmentation.
 def configure():
     flags = tf.app.flags
     # data
-    flags.DEFINE_string('raw_data_dir', 'Data/Test', 'Name of raw data file(s)')
-    flags.DEFINE_string('data_dir', 'h5_test/', 'Name of data file(s)')
+    flags.DEFINE_string('raw_data_dir', 'a-eye_segmentation/3DUnet_TF1/Data/Test/', 'Name of raw data file(s)')
+    flags.DEFINE_string('data_dir', 'a-eye_segmentation/3DUnet_TF1/h5_test/', 'Name of data file(s)')
     flags.DEFINE_float('learning_rate', 1e-3, 'learning rate')
     flags.DEFINE_boolean('aug_flip', True, 'Training data augmentation: flip. Extra 3 datasets.')
     flags.DEFINE_boolean('aug_rotate', True, 'Training data augmentation: rotate. Extra 9 datasets.')
@@ -29,9 +30,9 @@ def configure():
     flags.DEFINE_integer('height', 32, 'height size') # should be equal to patch_size
     flags.DEFINE_integer('width', 32, 'width size') # should be equal to patch_size
     # Debug
-    flags.DEFINE_string('logdir', './logdir', 'Log dir')
-    flags.DEFINE_string('modeldir', './modeldir', 'Model dir')
-    flags.DEFINE_string('savedir', './result', 'Result saving directory')
+    flags.DEFINE_string('logdir', 'a-eye_segmentation/3DUnet_TF1/model/logdir', 'Log dir')
+    flags.DEFINE_string('modeldir', 'a-eye_segmentation/3DUnet_TF1/model/modeldir', 'Model dir')
+    flags.DEFINE_string('savedir', 'a-eye_segmentation/3DUnet_TF1/model/result', 'Result saving directory')
     flags.DEFINE_string('model_name', 'model', 'Model file name')
     flags.DEFINE_integer('reload_step', 0, 'Reload step to continue training')
     flags.DEFINE_integer('test_step', 25000, 'Test or predict model at this step')
@@ -66,6 +67,8 @@ def main(_):
     model = Unet_3D(tf.Session(), conf)
     generate_h5.build_h5_dataset(conf.raw_data_dir,conf.data_dir)
     getattr(model, 'predict')()
+    # with open(os.path.join('a-eye_segmentation/3DUnet_TF1/model/model.pickle'),'wb') as f:
+    #     pickle.dump(model, f)
 
 
 if __name__ == '__main__':
