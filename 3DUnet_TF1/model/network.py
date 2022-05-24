@@ -275,6 +275,6 @@ class Unet_3D(object):
             self.conf.modeldir, self.conf.model_name)
         model_path = checkpoint_path+'-'+str(step)
         if not os.path.exists(model_path+'.meta'):
-            print('------- no such checkpoint', model_path)
+            print('------- no such checkpoint', model_path+'.meta')
             return
         self.saver.restore(self.sess, model_path)
