@@ -25,7 +25,7 @@ decorator==5.1.1
 dill==0.3.5.1
 distlib==0.3.5
 docker==5.0.3
-docutils==0.19
+docutils==0.16
 einops==0.4.1
 entrypoints==0.4
 executing==0.8.3
@@ -81,13 +81,13 @@ Markdown==3.4.1
 MarkupSafe==2.1.1
 matplotlib==3.5.2
 matplotlib-inline==0.1.3
-mccabe==0.7.0
+mccabe==0.6.0
 mlflow==1.27.0
 monai==0.9.1rc3
 mypy==0.961
 mypy-extensions==0.4.3
 nest-asyncio==1.5.5
-networkx==2.8.5
+networkx==2.8.3
 nibabel==4.0.1
 ninja==1.10.2.3
 nodeenv==1.7.0
