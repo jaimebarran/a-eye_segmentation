@@ -139,4 +139,5 @@ dmypy.json
 
 # Files
 *.pickle
+*.nii.gz
 pruebas
