@@ -136,8 +136,10 @@ dmypy.json
 3DUnet_TF1/model/modeldir/
 3DUnet_TF1/model/result/
 3DUnet_TF1/model/eval/.*
+3D_multilabel/test_data/
+3D_multilabel/saved_models/
 
 # Files
 *.pickle
 *.nii.gz
-pruebas
+pruebas.py
