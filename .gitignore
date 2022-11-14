@@ -129,16 +129,18 @@ dmypy.json
 .pyre/
 
 # Folders
-3DUnet_TF1/Data/
-3DUnet_TF1/h5_train/
-3DUnet_TF1/h5_test/
-3DUnet_TF1/model/logdir/
-3DUnet_TF1/model/modeldir/
-3DUnet_TF1/model/result/
-3DUnet_TF1/model/eval/.*
-3D_multilabel/test_data/
-3D_multilabel/saved_models/
-3D_multilabel/wandb/
+atlas_registration/ANTs/
+atlas_registration/Output/
+deep_learning/3DUnet_TF1/Data/
+deep_learning/3DUnet_TF1/h5_train/
+deep_learning/3DUnet_TF1/h5_test/
+deep_learning/3DUnet_TF1/model/logdir/
+deep_learning/3DUnet_TF1/model/modeldir/
+deep_learning/3DUnet_TF1/model/result/
+deep_learning/3DUnet_TF1/model/eval/.*
+deep_learning/3D_multilabel/test_data/
+deep_learning/3D_multilabel/saved_models/
+deep_learning/3D_multilabel/wandb/
 
 # Files
 *.pickle

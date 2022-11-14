@@ -1,0 +1,97 @@
+1--------------------------------------------------------------------------------
+pip install templateflow
+conda install -c conda-forge -c anaconda ipython
+ipython
+from templateflow import api
+api.get("MNI152NLin2009cAsym", suffix="T1w")
+api.get("MNI152NLin2009cAsym", suffix="T1w")[1]
+ants
+antsBrainExtraction.sh
+ipython
+from templateflow import api
+api.get("MNI152NLin2009cAsym", desc="brain", suffix="mask")
+
+
+2-------------------------------------------------------------------------------------
+conda activate base
+
+pip install nibabel
+
+pushd /mnt/sda1/1_Soenke_Segmentation
+/mnt/sda1/1_Soenke_Segmentation /mnt/sda1/ANTs/Pruebas
+
+import nibabel as nb
+
+t1 = nb.load("NIFTI/T1.nii.gz")
+
+print(t1.header)
+
+# ctrl + o para saltar de línea
+from pathlib import Path
+   ...: segments = [nb.load(f) for f in Path("LABELS_nii").glob("*.nii")]
+
+segments
+
+print(segments[0])
+
+print(t1.header)
+
+print(segments[0])
+
+exit
+
+mango $PWD/NIFTI/T1.nii.gz 
+
+import numpy as np
+
+segmentation = np.zeros_like(segments[0].dataobj, dtype="uint8")
+
+for label, volume in enumerate(segments):
+   ...:     segmentation[np.asanyarray(volume.dataobj) > 0] = label + 1
+
+header = segments[0].header.copy()
+
+header.set_data_dtype("uint8")
+
+nii = nb.Nifti1Image(segmentation, segments[0].affine, header)
+
+print(nii.header)
+
+nii.to_filename("all_segments.nii.gz")
+
+itksnap NIFTI/T1.nii.gz 
+
+exit
+
+cp /mnt/sda1/1_Soenke_Segmentation/all_segments.nii.gz .
+
+cp /mnt/sda1/1_Soenke_Segmentation/NIFTI/T1.nii.gz .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

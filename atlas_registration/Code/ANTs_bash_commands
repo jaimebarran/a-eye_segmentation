@@ -1,0 +1,96 @@
+ANTs bash commands	
+
++-------------+
+| Parameters: |
++-------------+
+
+-Soenke (sample = moving):
+../input/T1.nii.gz
+
+-Colin (reference = fixed):
+../input/tpl-MNIColin27_T1w.nii.gz
+
+-Colin's brain mask:
+../input/tpl-MNIColin27_desc-brain_mask.nii.gz
+
+-MNI152:
+../input_backup/tpl-MNI152NLin2009cAsym_res-01_T1w.nii.gz
+
+-MNI152 brain's mask:
+../input_backup/tpl-MNI152NLin2009cAsym_res-01_desc-brain_mask.nii.gz
+
+
++-------------------------+
+| antsBrainExtraction.sh: |
++-------------------------+
+
+$ antsBrainExtraction.sh -d 3 -a <moving-image> -e <fixed-image> -m <mask> -o output
+
+-Example:
+$ antsBrainExtraction.sh -d 3 -a ../input/T1.nii.gz -e ../input/tpl-MNIColin27_T1w.nii.gz -m ../input/tpl-MNIColin27_desc-brain_mask.nii.gz -o output -k 1
+
+
++----------------------+
+| antsApplyTransforms: |
++----------------------+
+
+$ antsApplyTransforms -d 3 -i ../input/<roi.nii.gz> -o <roi-moved-to-template>.nii.gz -r ../input/collin -n MultiLabel -t [ outputBrainExtractionPrior0GenericAffine.mat, 0 ] -t outputBrainExtractionPrior1Warp.nii.gz --float 0 --verbose 1
+
+-Example Colin:
+$ antsApplyTransforms -d 3 -i ../input/colin27/all_segments.nii.gz -o all_segments_template.nii.gz -r ../input/colin/tpl-MNIColin27_T1w.nii.gz -n MultiLabel -t [ outputBrainExtractionPrior0GenericAffine.mat, 0 ] -t outputBrainExtractionPrior1Warp.nii.gz --float 0 --verbose 1
+
+-Example MNI152:
+$ antsApplyTransforms -d 3 -i ../input/mni152/all_segments.nii.gz -o all_segments_template.nii.gz -r ../input/mni152/tpl-MNI152NLin2009cAsym_res-01_T1w.nii.gz -n MultiLabel -t [ outputBrainExtractionPrior0GenericAffine.mat, 0 ] -t outputBrainExtractionPrior1Warp.nii.gz --float 0 --verbose 1
+
+Inverse transform (Yasser):
+-t [ outputBrainExtractionPrior0GenericAffine.mat, 1 ] -t outputBrainExtractionPrior1InverseWarp.nii.gz
+
+
++-----------------------+
+| antsEyeExtraction.sh: |
++-----------------------+
+
+$ antsEyeExtraction.sh -d 3 -a ../input/T1.nii.gz -e $( python -c "from templateflow import api; print(str(api.get('MNI152NLin2009cAsym', suffix='T1w', desc=None, resolution=1)))" ) -f $( python -c "from templateflow import api; print(str(api.get('MNI152NLin2009cAsym', suffix='mask', desc='eye', resolution=1)))" ) -g '/mnt/sda1/ANTs/input/all_segments.nii.gz'  -o output -k 1
+
+-Example Colin:
+$ antsEyeExtraction.sh -d 3 -a ../input/T1.nii.gz -e ../input/colin27/tpl-MNIColin27_T1w.nii.gz -f ../input/mni152/tpl-MNI152NLin2009cAsym_res-01_desc-eye_mask.nii.gz -g '/mnt/sda1/ANTs/input/all_segments.nii.gz'  -o output -k 1
+
+
+
++---------------------------------------+
+| antsRegistrationSyN for cropped images|
++---------------------------------------+
+
+-MNI152:
+
+$ antsRegistrationSyN.sh -d 3 -m /mnt/sda1/ANTs/a123/sub-01/input/sub-01_T1_itksnap_cropped.nii.gz -f /mnt/sda1/ANTs/a123/sub-01/input/tpl-MNI152NLin2009cAsym_res-01_T1w_cropped.nii.gz -t s
+
+$ antsApplyTransforms -d 3  -r /mnt/sda1/ANTs/a123/sub-01/input/tpl-MNI152NLin2009cAsym_res-01_T1w_cropped.nii.gz -o all_segments_template.nii.gz -i /mnt/sda1/ANTs/a123/sub-01/input/sub-01_labels_cropped.nii.gz -n MultiLabel -t [./output0GenericAffine.mat, 0 ] -t ./output1Warp.nii.gz --float 0 --verbose 1
+
+-Colin27:
+
+$ antsRegistrationSyN.sh -d 3 -m /mnt/sda1/ANTs/a123/sub-01/input/sub-01_T1_itksnap_cropped.nii.gz -f /mnt/sda1/ANTs/a123/sub-01/input/tpl-MNIColin27_T1w_cropped.nii.gz -t s
+
+$ antsApplyTransforms -d 3  -r /mnt/sda1/ANTs/a123/sub-01/input/tpl-MNIColin27_T1w_cropped.nii.gz -o all_segments_template.nii.gz -i /mnt/sda1/ANTs/a123/sub-01/input/sub-01_labels_cropped.nii.gz -n MultiLabel -t [./output0GenericAffine.mat, 0 ] -t ./output1Warp.nii.gz --float 0 --verbose 1
+
+
+
++------------------------+
+| MeasureImageSimilarity |
++------------------------+
+
+-Cross Correlation:
+
+$ MeasureImageSimilarity -d 3 -m CC["/mnt/sda1/Repos/a-eye/Data/templateflow/colin27/tpl-MNIColin27_T1w.nii.gz", "/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/a123/sub-01/output_colin27/BrainExtractionNormalized.nii.gz", 1, 10, None, 1] -v 1
+
+- Demons:
+
+$ MeasureImageSimilarity -d 3 -m Demons["/mnt/sda1/Repos/a-eye/Data/templateflow/colin27/tpl-MNIColin27_T1w.nii.gz", "/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/a123/sub-01/output_colin27/BrainExtractionNormalized.nii.gz", 1] -v 1
+
+
+
+
+
+
+
+

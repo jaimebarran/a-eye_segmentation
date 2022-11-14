@@ -1,0 +1,25 @@
+BIDS tutorial
+https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html
+
+Finally, we’ve created the configuration file; now the BIDS conversion can be performed. For this, we’ll assume that the subject ID is 01 and that this is a single session study. Type the following on the command line:
+
+$ dcm2bids_scaffold -o $HOME/BIDS_tutorial
+$ echo "study imaging data" > $HOME/BIDS_tutorial/README
+$ dcm2bids -d $HOME/BIDS_tutorial/BIDS_tutorial_data -p 01 -c $HOME/BIDS_config.json -o $HOME/BIDS_tutorial --forceDcm2niix
+
+$ dcm2bids -d ./BIDS_tutorial_data/ -p 01 -c ./BIDS_config.json -o . --forceDcm2niix
+
+
+If however this were multi-session data (i.e. participant was scanned more than once), the dcm2bids command will look like this, where the -s 01 indicates that this is the first session. -s 02 would indicate the second session, and so on.:
+
+$ dcm2bids_scaffold -o $HOME/BIDS_tutorial
+$ echo "study imaging data" > $HOME/BIDS_tutorial/README
+$ dcm2bids -d $HOME/BIDS_tutorial/BIDS_tutorial_data -p 01 -s 01 -c $HOME/BIDS_config.json -o $HOME/BIDS_tutorial --forceDcm2niix
+
+Clean the project.
+Type the following onto the command line, line by line:
+
+$ mv $HOME/BIDS_tutorial/BIDS_tutorial_data $HOME/BIDS_tutorial/sourcedata
+$ rm -rf $HOME/BIDS_tutorial/tmp_dcm2bids
+
+
