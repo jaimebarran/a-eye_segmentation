@@ -144,3 +144,5 @@ dmypy.json
 *.pickle
 *.nii.gz
 pruebas.py
+*.csv
+*.png
