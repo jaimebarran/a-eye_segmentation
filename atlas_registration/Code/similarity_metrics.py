@@ -41,20 +41,24 @@ def dice_norm_metric(ground_truth, predictions):
             fnr = fn / np.sum(gt)
         return dsc_norm # fpr, fnr
 
-''' Data frame file generation
-base_dir = '/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/best_subjects_eye_cc/CustomTemplate_5_n1/' # {1, 5, 7, 9}
-gt_dir = '/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/a123/' # GT
+# ''' Data frame file generation
+# base_dir = '/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/best_subjects_eye_cc/CustomTemplate_5_n1/' # {1, 5, 7, 9}
+base_dir = '/mnt/sda1/Repos/a-eye/a-eye_segmentation/deep_learning/nnUNet/nnUNet/nnUNet_inference/nnUNet_inference_labeled_dataset/'
+# gt_dir = '/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/a123/' # GT
+gt_dir = '/mnt/sda1/Repos/a-eye/Data/a123/'
 
 # List of best subjects
-best_subjects_cc = ['sub-02','sub-03','sub-20','sub-29','sub-33'] # 5
+# best_subjects_cc = ['sub-02','sub-03','sub-20','sub-29','sub-33'] # 5
 # best_subjects_cc = ['sub-02','sub-03','sub-20','sub-29','sub-30','sub-33','sub-34'] # 7
 # best_subjects_cc = ['sub-02','sub-03','sub-08','sub-09','sub-20','sub-29','sub-30','sub-33','sub-34'] # 9
+best_subjects_cc = ['sub-13','sub-14','sub-21','sub-34'] # test subjects
 
-# List of remaining subjects
-all_subjects = list()
-for i in range(35):
-    all_subjects.append('sub-'+str(i+1).zfill(2))
-rest_subjects = [elem for elem in all_subjects if elem not in best_subjects_cc]
+# # List of remaining subjects
+# all_subjects = list()
+# for i in range(35):
+#     all_subjects.append('sub-'+str(i+1).zfill(2))
+# rest_subjects = [elem for elem in all_subjects if elem not in best_subjects_cc]
+rest_subjects = best_subjects_cc
 
 # Save values in an array
 # All labels
@@ -135,14 +139,14 @@ reader = sitk.ImageFileReader()
 for i in range(len(rest_subjects)):
 
     # Prediction image to compare to GT
-    pr_path = base_dir + 'reg_cropped_other_subjects/' + rest_subjects[i] + '_reg_cropped/labels2subject3.nii.gz' # Labels' image to compare to GT
+    pr_path = f'{base_dir}AEye_00{i+1}.nii.gz' # Labels' image to compare to GT
     reader.SetFileName(pr_path)
     pr_sitk = sitk.Cast(reader.Execute(), sitk.sitkUInt8)
     pr_arr = sitk.GetArrayFromImage(pr_sitk) # in numpy format
     pr_size = pr_arr.shape[0]*pr_arr.shape[1]*pr_arr.shape[2]
 
     # Ground truth
-    gt_path = gt_dir + rest_subjects[i] + '/input/' + rest_subjects[i] + '_labels_cropped.nii.gz' # GT
+    gt_path = gt_dir + rest_subjects[i] + '/input/' + rest_subjects[i] + '_labels_aff.nii.gz' # GT
     reader.SetFileName(gt_path)
     gt_sitk = sitk.Cast(reader.Execute(), sitk.sitkUInt8)
     gt_arr = sitk.GetArrayFromImage(gt_sitk) # en numpy format
@@ -430,14 +434,14 @@ vals = vals.T
 # print(vals)
 # print(f"type: {vals.dtype}, shape: {vals.shape}")
 
-with open('/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/best_subjects_eye_cc/CustomTemplate_5_n1/sim_metrics_labels2subject3_N5.csv', 'w') as file:
+with open(f'{base_dir}data_dsc_nn.csv', 'w') as file:
     writer = csv.writer(file)
     writer.writerow(metrics)
     writer.writerows(vals)
 
 # '''
 
-# ''' Plot per metric
+''' Plot per metric
 path = '/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/best_subjects_eye_cc/CustomTemplate_5_n1/'
 filename = 'DSC_nDSC_VolSim_Haus_labels2subject3_N5.png'
 df5 = pd.read_csv(path + 'sim_metrics_labels2subject3_N5.csv')
