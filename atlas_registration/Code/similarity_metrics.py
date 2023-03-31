@@ -41,7 +41,7 @@ def dice_norm_metric(ground_truth, predictions):
             fnr = fn / np.sum(gt)
         return dsc_norm # fpr, fnr
 
-# ''' Data frame file generation
+''' Data frame file generation
 # base_dir = '/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/best_subjects_eye_cc/CustomTemplate_5_n1/' # {1, 5, 7, 9}
 base_dir = '/mnt/sda1/Repos/a-eye/a-eye_segmentation/deep_learning/nnUNet/nnUNet/nnUNet_inference/nnUNet_inference_labeled_dataset/'
 # gt_dir = '/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/a123/' # GT
@@ -439,9 +439,9 @@ with open(f'{base_dir}data_dsc_nn.csv', 'w') as file:
     writer.writerow(metrics)
     writer.writerows(vals)
 
-# '''
+'''
 
-''' Plot per metric
+# ''' Plot per metric
 path = '/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/best_subjects_eye_cc/CustomTemplate_5_n1/'
 filename = 'DSC_nDSC_VolSim_Haus_labels2subject3_N5.png'
 df5 = pd.read_csv(path + 'sim_metrics_labels2subject3_N5.csv')
@@ -452,38 +452,39 @@ data_ndsc = [df5['nDSC_all'],  df5['nDSC_lens'], df5['nDSC_globe'], df5['nDSC_ne
 data_vol = [df5['Volume_all'], df5['Volume_lens'], df5['Volume_globe'], df5['Volume_nerve'], df5['Volume_int_fat'], df5['Volume_ext_fat'], df5['Volume_lat_mus'], df5['Volume_med_mus'], df5['Volume_inf_mus'], df5['Volume_sup_mus']]
 data_haus = [df5['Haus_avg_all'], df5['Haus_avg_lens'], df5['Haus_avg_globe'], df5['Haus_avg_nerve'], df5['Haus_avg_int_fat'], df5['Haus_avg_ext_fat'], df5['Haus_avg_lat_mus'], df5['Haus_avg_med_mus'], df5['Haus_avg_inf_mus'], df5['Haus_avg_sup_mus']]
 
-labels = ['lens', 'globe', 'nerve', 'intraconal fat', 'extraconal fat', 'lateral rectus muscle', 'medial rectus muscle', 'inferior rectus muscle', 'superior rectus muscle']
-median = [np.around(np.median(x), 2) for x in data_dsc]
+labels = ['all', 'lens', 'globe', 'nerve', 'intraconal fat', 'extraconal fat', 'lateral rectus muscle', 'medial rectus muscle', 'inferior rectus muscle', 'superior rectus muscle']
+median = [np.around(np.median(x), 2) for x in data_vol]
+std = [np.around(np.std(x), 2) for x in data_vol]
 for i in range(len(labels)):
-    print(labels[i], median[i])
+    print(labels[i], median[i], std[i])
 
-# Figure 1
-fig, axs = plt.subplots(4, figsize=(20,10), sharex=True)
-fig.canvas.set_window_title('Similarity metrics N=5')
-# fig.suptitle('Similarity metrics N=5')
+# # Figure 1
+# fig, axs = plt.subplots(4, figsize=(20,10), sharex=True)
+# fig.canvas.set_window_title('Similarity metrics N=5')
+# # fig.suptitle('Similarity metrics N=5')
 
-# Boxplot & Swarmplot (points)
-ax1 = sns.boxplot(data=data_dsc, ax=axs[0]).set(ylabel="Value")
-ax1 = sns.swarmplot(data=data_dsc, ax=axs[0])
-ax2 = sns.boxplot(data=data_ndsc, ax=axs[1]).set(ylabel="Value")
-ax2 = sns.swarmplot(data=data_ndsc, ax=axs[1])
-ax3 = sns.boxplot(data=data_vol, ax=axs[2]).set(ylabel="Value")
-ax3 = sns.swarmplot(data=data_vol, ax=axs[2])
-ax4 = sns.boxplot(data=data_haus, ax=axs[3]).set(ylabel="Value")
-ax4 = sns.swarmplot(data=data_haus, ax=axs[3])
+# # Boxplot & Swarmplot (points)
+# ax1 = sns.boxplot(data=data_dsc, ax=axs[0]).set(ylabel="Value")
+# ax1 = sns.swarmplot(data=data_dsc, ax=axs[0])
+# ax2 = sns.boxplot(data=data_ndsc, ax=axs[1]).set(ylabel="Value")
+# ax2 = sns.swarmplot(data=data_ndsc, ax=axs[1])
+# ax3 = sns.boxplot(data=data_vol, ax=axs[2]).set(ylabel="Value")
+# ax3 = sns.swarmplot(data=data_vol, ax=axs[2])
+# ax4 = sns.boxplot(data=data_haus, ax=axs[3]).set(ylabel="Value")
+# ax4 = sns.swarmplot(data=data_haus, ax=axs[3])
 
-# Set labels and titles
-ax1.set_xticklabels(['all','lens','globe','nerve','int_fat','ext_fat','lat_mus','med_mus','inf_mus','sup_mus'])
-ax1.set_title('DSC')
-ax1.set_yticks(np.arange(0, 1.1, 0.1))
-ax2.set_title('nDSC')
-ax2.set_yticks(np.arange(0, 1.1, 0.1))
-ax3.set_title('Volume similarity')
-ax3.set_yticks(np.arange(-2, 2.5, 0.5))
-ax4.set_title('Hausdorff distance')
-ax4.set_yticks(np.arange(0, 1.7, 0.2))
+# # Set labels and titles
+# ax1.set_xticklabels(['all','lens','globe','nerve','int_fat','ext_fat','lat_mus','med_mus','inf_mus','sup_mus'])
+# ax1.set_title('DSC')
+# ax1.set_yticks(np.arange(0, 1.1, 0.1))
+# ax2.set_title('nDSC')
+# ax2.set_yticks(np.arange(0, 1.1, 0.1))
+# ax3.set_title('Volume similarity')
+# ax3.set_yticks(np.arange(-2, 2.5, 0.5))
+# ax4.set_title('Hausdorff distance')
+# ax4.set_yticks(np.arange(0, 1.7, 0.2))
 
-plt.show()
+# plt.show()
 
 # Save figure
 # plt.savefig(path + filename, bbox_inches='tight')
