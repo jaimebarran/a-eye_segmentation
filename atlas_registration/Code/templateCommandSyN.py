@@ -1,11 +1,10 @@
-import ants
 import os
 import glob
 import numpy as np
 
 base_dir = '/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/a123/'
-# input_im_dir = '/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/best_subjects_eye_cc/'
-input_im_dir = '/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/worst_subjects_eye_cc/'
+input_im_dir = '/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/best_subjects_eye_cc/'
+# input_im_dir = '/mnt/sda1/Repos/a-eye/a-eye_preprocessing/ANTs/worst_subjects_eye_cc/'
 output_dir = input_im_dir + 'CustomTemplate_5_n0/'
 
 # '''
