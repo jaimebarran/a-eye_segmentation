@@ -149,3 +149,4 @@ deep_learning/nnUNet/nnUNet/
 pruebas.py
 *.csv
 *.png
+deep_learning/3D_multilabel/tmp.ipynb
