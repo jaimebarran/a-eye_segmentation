@@ -13,4 +13,4 @@
 #SBATCH --account rad
 #SBATCH --partition rad
 #SBATCH --gres=gpu:1
-singularity run --bind /data/bach/AEye/nnUNet:/opt/nnunet_resources --nv docker://petermcgor/nnunet:0.0.1 nnUNet_train 3d_fullres nnUNetTrainerV2 Task313_Eye 0 --npz
+singularity run --bind /data/bach/AEye/nnUNet:/opt/nnunet_resources --nv docker://jaimebarran/nnunet:0.0.1 nnUNet_train 3d_fullres nnUNetTrainerV2 Task313_Eye 0 --npz
