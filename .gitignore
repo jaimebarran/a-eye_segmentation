@@ -142,7 +142,6 @@ deep_learning/3D_multilabel/test_data/
 deep_learning/3D_multilabel/saved_models/
 deep_learning/3D_multilabel/wandb/
 deep_learning/nnUNet/nnUNet/
-deep_learning/nnUNet/hpc/
 
 # Files
 *.pickle
