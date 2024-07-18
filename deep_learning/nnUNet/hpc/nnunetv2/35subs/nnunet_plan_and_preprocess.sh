@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=nn_pp
-#SBATCH --chdir=/cluster/home/ja4922/AEye/nnunetv2/74subs
+#SBATCH --chdir=/cluster/home/ja4922/AEye/nnunetv2/35subs
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=jaime.barranco-hernandez@chuv.ch
 #SBATCH --ntasks=1

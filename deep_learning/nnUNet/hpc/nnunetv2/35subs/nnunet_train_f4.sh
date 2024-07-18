@@ -11,7 +11,7 @@
 #SBATCH --mem=64gb
 #SBATCH --account rad
 #SBATCH --partition rad
-#SBATCH --gres=gpu:rtx3090:1
+#SBATCH --gres=gpu:rtx2080:1
 
 export SINGULARITY_TMPDIR=/data/bach/Jaime/singularity/tmp
 export SINGULARITY_CACHEDIR=/data/bach/Jaime/singularity/cache

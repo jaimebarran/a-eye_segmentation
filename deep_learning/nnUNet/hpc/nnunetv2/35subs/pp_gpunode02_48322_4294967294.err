@@ -1,0 +1,69 @@
+INFO:    Converting OCI blobs to SIF format
+INFO:    Starting build...
+2024/07/10 14:54:20  info unpack layer: sha256:9d19ee268e0d7bcf6716e6658ee1b0384a71d6f2f9aa1ae2085610cf7c7b316f
+2024/07/10 14:55:01  info unpack layer: sha256:0ec682bf99715a9f88631226f3749e2271b8b9f254528ef61f65ed829984821c
+2024/07/10 14:55:44  info unpack layer: sha256:9ac855545fa90ed2bf3b388fdff9ef06ac9427b0c0fca07c9e59161983d8827e
+2024/07/10 14:56:16  info unpack layer: sha256:0a77dcbd0e648ddc4f8e5230ade8fdb781d99e24fa4f13ca96a360c7f7e6751f
+2024/07/10 14:56:17  info unpack layer: sha256:0a1756432df4a4350712d8ae5c003f1526bd2180800b3ae6301cfc9ccf370254
+2024/07/10 14:58:21  info unpack layer: sha256:e9225f7ab6606813ec9acba98a064826ebfd6713a9645a58cd068538af1ecddb
+2024/07/10 14:58:21  info unpack layer: sha256:5b5b131e0f20db4cb8e568b623a95f8fc16ed1c6b322a9366df70b59a881f24f
+2024/07/10 14:58:21  info unpack layer: sha256:238f69a43816e481f0295995fcf5fe74d59facf0f9f99734c8d0a2fb140630e0
+2024/07/10 14:58:22  info unpack layer: sha256:4d04a8db404f16c2704fa10739cb6745a0187713a21a6ef0deb34b48629b54c1
+2024/07/10 14:58:22  info unpack layer: sha256:7852b73ea931e3a8d3287ee7ef3cf4bad068e44f046583bfc2b81336fb299284
+2024/07/10 14:58:30  info unpack layer: sha256:3e3e04011ebdba380ab129f0ee390626cb2a600623815ca756340c18bedb9517
+2024/07/10 14:59:01  info unpack layer: sha256:f608e2fbff86e98627b7e462057e7d2416522096d73fe4664b82fe6ce8a4047d
+2024/07/10 14:59:02  info unpack layer: sha256:2ad84487f9d4d31cd1e0a92697a5447dd241935253d036b272ef16d31620c1e7
+2024/07/10 14:59:38  info unpack layer: sha256:a24ac4dbffe89442eb59467d7f2f54358e0b8a3b1411598f09978303baf1f0d5
+2024/07/10 15:00:32  info unpack layer: sha256:681008e40cf9ae171ada70a6e3d03ed7e49a40a3f087e49e3937f6bb809fa7b1
+2024/07/10 15:00:35  info unpack layer: sha256:693ca498adf9732a3ab8f609e67e7190b97d3cc9f89dec0b481bdb2727e02246
+2024/07/10 15:00:54  info unpack layer: sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1
+2024/07/10 15:00:54  info unpack layer: sha256:f82403eb7b835b5d0685f63e79528361249fb5139aa8d1c7c644fffe59785b09
+2024/07/10 15:00:54  info unpack layer: sha256:8035aa77f7fb3b4ff0af6169d46d0fb192e5150c94e6ab4a1947840aa0d3ccc6
+2024/07/10 15:00:54  info unpack layer: sha256:19ea29d74e8594a133ec0d391359f5c1312296b75461478bbcc9f326de3085b8
+2024/07/10 15:16:27  info unpack layer: sha256:497e75b3d1c5473a012b207c553f76e4b11419f2f2f66bbdd07017435dd84957
+2024/07/10 15:18:01  info unpack layer: sha256:e4cba662a9603ad133d46b375fd6a4160a906db10e6107b91c9eb753ba97903f
+2024/07/10 15:18:35  info unpack layer: sha256:2173aa6212b2f08219bbca89288f81bd7bd7dd3aa07fd0b8a78b46c145955f7a
+2024/07/10 15:18:35  info unpack layer: sha256:bcb3f16762beaac604eb8c3adcf64f8e5135e6112978ba328e728a7d5db1f353
+2024/07/10 15:18:39  warn rootless{usr/local/nvm/versions/node/v16.20.0/bin/corepack} ignoring (usually) harmless EPERM on setxattr "user.rootlesscontainers"
+2024/07/10 15:18:40  warn rootless{usr/local/nvm/versions/node/v16.20.0/bin/npm} ignoring (usually) harmless EPERM on setxattr "user.rootlesscontainers"
+2024/07/10 15:18:40  warn rootless{usr/local/nvm/versions/node/v16.20.0/bin/npx} ignoring (usually) harmless EPERM on setxattr "user.rootlesscontainers"
+2024/07/10 15:18:48  info unpack layer: sha256:9d99671cb5957d3375832ecb79926b45d2ab6909598a347cf85295a643e5ae16
+2024/07/10 15:18:48  info unpack layer: sha256:05afacb5fb85363abcb75841dedc7a315bc7ac9e7492bedc5201b3531cc437e2
+2024/07/10 15:18:49  info unpack layer: sha256:f09998a3d18e2250d0fff3115a237cf718c116ab2a5ae6ae032b560a2aabe5b2
+2024/07/10 15:18:54  info unpack layer: sha256:ba56bd485673e44a146422277ac896a790afc372443156d6f3ffa126033a97a7
+2024/07/10 15:20:04  info unpack layer: sha256:f019b2fd493daded8fe7e721e285dcfe80b4d3823a8cb909b98d3c21f2aaf9cc
+2024/07/10 15:20:12  info unpack layer: sha256:0720a06920d50250ed9dba508b57f58f81572246581631c5612a0513d67f1b4e
+2024/07/10 15:20:16  info unpack layer: sha256:b40f7980fa75bf5aeeede320a688926b08fdea7c9bd312bef455d8e9a903bff7
+2024/07/10 15:20:42  info unpack layer: sha256:458f02c241a1f79bf9d2dbb779985390db262841100baf2e3429875244613455
+2024/07/10 15:20:51  info unpack layer: sha256:3e36ee182e799cbd5b74b71ae7298354e127e5a2f4f583c566c92b0eab6bdf7c
+2024/07/10 15:20:51  info unpack layer: sha256:6c9f88339e6283cb72af66d47db4818e17155ef072be34fddd0df91b5305de52
+2024/07/10 15:22:00  info unpack layer: sha256:662de590d31b6645f45ad59c5365f5dac1ac00bb02a6da264f988e43f595afb4
+2024/07/10 15:22:00  info unpack layer: sha256:84f7141bcb6754aac7af7dd823d24e06d6b849342db5940caeaeb77b08e27258
+2024/07/10 15:22:01  info unpack layer: sha256:ce782753a19f67a2c94eefa0ff3dd560a4b847462aa95eb2c82be662dce4b132
+2024/07/10 15:22:11  warn rootless{usr/lib/libarrow.so} ignoring (usually) harmless EPERM on setxattr "user.rootlesscontainers"
+2024/07/10 15:22:11  warn rootless{usr/lib/libarrow.so.1100} ignoring (usually) harmless EPERM on setxattr "user.rootlesscontainers"
+2024/07/10 15:22:11  warn rootless{usr/lib/libarrow_dataset.so} ignoring (usually) harmless EPERM on setxattr "user.rootlesscontainers"
+2024/07/10 15:22:11  warn rootless{usr/lib/libarrow_dataset.so.1100} ignoring (usually) harmless EPERM on setxattr "user.rootlesscontainers"
+2024/07/10 15:23:03  warn rootless{usr/lib/libparquet.so} ignoring (usually) harmless EPERM on setxattr "user.rootlesscontainers"
+2024/07/10 15:23:03  warn rootless{usr/lib/libparquet.so.1100} ignoring (usually) harmless EPERM on setxattr "user.rootlesscontainers"
+2024/07/10 15:24:05  info unpack layer: sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1
+2024/07/10 15:24:05  info unpack layer: sha256:1f0730ed36c9d3c7736480a3c5614c1e5b1e70c4d01930a6ba74ea26dd12aa1c
+2024/07/10 15:24:05  info unpack layer: sha256:2429a42968794f8b47d27bed008908ce7ab2c929846e5785479b6c88b6931d4f
+2024/07/10 15:24:05  info unpack layer: sha256:ca542a4bbaaa45384d2576d0d8fb208aa5f4678684da8a2a3a9c314e8262f4ef
+2024/07/10 15:24:06  info unpack layer: sha256:c9a11388a8b4c14532e2ef45283b92582d2d01f6030959168b832c283a1cbc1d
+2024/07/10 15:24:08  info unpack layer: sha256:3f049e94611fb011ae3e8865113e1455efb886ba11ce121e4e078da9d6d93dfc
+2024/07/10 15:24:12  info unpack layer: sha256:cb58d08aedd006d55c74a355577562fb4f764314547665c34e29ef6a05fb5264
+2024/07/10 15:24:12  info unpack layer: sha256:16f4133becabe75d195fc9c5f9ac7db98867c803774b27edd3f1c80c9d7d7606
+2024/07/10 15:24:13  info unpack layer: sha256:0287752c8342c84aa714834c11878658599f7c2f7451ca9cbf68fd42fb9b24c7
+2024/07/10 15:24:28  info unpack layer: sha256:0426922605a82712afd675cc35f314717eaecccae97af0b47c4de425a02c4ebf
+2024/07/10 15:24:29  info unpack layer: sha256:86ea29fc5964c78eb93fc15cced07544d0a8372879681c1fe71bd265b11e5df7
+2024/07/10 15:24:42  info unpack layer: sha256:7e63c04b708a3fbd958517608015e30f7098452f74a0b5bd4ebad0e5fe1fcbc1
+2024/07/10 15:24:42  info unpack layer: sha256:756610a546ddbb6b149e49aeb67381d64929f093baa84d4e5383e894fb60732a
+2024/07/10 15:24:42  info unpack layer: sha256:5f78e55196e168714c859dd55c92770dafcc34510a880baaaab2e1ee9a5dba6b
+2024/07/10 15:27:38  info unpack layer: sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1
+2024/07/10 15:27:38  info unpack layer: sha256:1487bf9b78ffd01e12a9adce5b00ee39f80aa9b0701b1da286111a7c90ad60a9
+INFO:    Creating SIF file...
+13:4: not a valid test operator: (
+13:4: not a valid test operator: 550.54.15
+  0%|          | 0/31 [00:00<?, ?it/s]  3%|▎         | 1/31 [00:02<01:15,  2.50s/it]  6%|▋         | 2/31 [00:02<00:31,  1.09s/it] 16%|█▌        | 5/31 [00:02<00:08,  3.00it/s] 23%|██▎       | 7/31 [00:02<00:05,  4.18it/s] 35%|███▌      | 11/31 [00:03<00:02,  8.04it/s] 45%|████▌     | 14/31 [00:03<00:01,  9.67it/s] 55%|█████▍    | 17/31 [00:03<00:01, 12.58it/s] 65%|██████▍   | 20/31 [00:03<00:00, 15.53it/s] 74%|███████▍  | 23/31 [00:03<00:00, 15.34it/s] 87%|████████▋ | 27/31 [00:03<00:00, 19.99it/s] 97%|█████████▋| 30/31 [00:03<00:00, 22.10it/s]100%|██████████| 31/31 [00:04<00:00,  7.73it/s]
+  0%|          | 0/31 [00:00<?, ?it/s]  3%|▎         | 1/31 [00:04<02:06,  4.21s/it] 13%|█▎        | 4/31 [00:04<00:22,  1.22it/s] 19%|█▉        | 6/31 [00:06<00:22,  1.11it/s] 26%|██▌       | 8/31 [00:06<00:13,  1.74it/s] 32%|███▏      | 10/31 [00:08<00:15,  1.38it/s] 42%|████▏     | 13/31 [00:10<00:12,  1.46it/s] 45%|████▌     | 14/31 [00:10<00:09,  1.71it/s] 48%|████▊     | 15/31 [00:10<00:07,  2.04it/s] 55%|█████▍    | 17/31 [00:12<00:09,  1.52it/s] 58%|█████▊    | 18/31 [00:12<00:07,  1.84it/s] 61%|██████▏   | 19/31 [00:12<00:05,  2.26it/s] 68%|██████▊   | 21/31 [00:14<00:06,  1.61it/s] 71%|███████   | 22/31 [00:14<00:04,  1.97it/s] 74%|███████▍  | 23/31 [00:14<00:03,  2.43it/s] 77%|███████▋  | 24/31 [00:14<00:02,  3.01it/s] 81%|████████  | 25/31 [00:16<00:04,  1.38it/s] 87%|████████▋ | 27/31 [00:16<00:01,  2.10it/s] 94%|█████████▎| 29/31 [00:18<00:01,  1.62it/s] 97%|█████████▋| 30/31 [00:18<00:00,  1.97it/s]100%|██████████| 31/31 [00:18<00:00,  2.29it/s]100%|██████████| 31/31 [00:18<00:00,  1.64it/s]
