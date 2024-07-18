@@ -17,4 +17,4 @@ export SINGULARITY_TMPDIR=/data/bach/Jaime/singularity/tmp
 export SINGULARITY_CACHEDIR=/data/bach/Jaime/singularity/cache
 export nnUNet_compile=f
 
-singularity run --bind /data/bach/Jaime/nnunet_guillaume:/opt/nnunet_resources --nv docker://jaimebarran/nnunet:0.1.0 nnUNetv2_train 074 3d_fullres 0 --npz
+singularity run --bind /data/bach/Jaime/nnunet_guillaume/nnUNet_74subs:/opt/nnunet_resources --nv docker://jaimebarran/nnunet:0.1.0 nnUNetv2_train 074 3d_fullres 0 --npz

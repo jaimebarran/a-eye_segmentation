@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=nn_f2
-#SBATCH --chdir=/cluster/home/ja4922/AEye/nnunetv2/35subs
+#SBATCH --chdir=/cluster/home/ja4922/AEye/nnunetv2/74subs
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=jaime.barranco-hernandez@chuv.ch
 #SBATCH --ntasks=1
@@ -11,10 +11,10 @@
 #SBATCH --mem=64gb
 #SBATCH --account rad
 #SBATCH --partition rad
-#SBATCH --gres=gpu:rtx3090:1
+#SBATCH --gres=gpu:rtx2080:1
 
 export SINGULARITY_TMPDIR=/data/bach/Jaime/singularity/tmp
 export SINGULARITY_CACHEDIR=/data/bach/Jaime/singularity/cache
 export nnUNet_compile=f
 
-singularity run --bind /data/bach/Jaime/nnUNet_guillaume:/opt/nnunet_resources --nv docker://jaimebarran/nnunet:0.1.0 nnUNetv2_train 313 3d_fullres 2 --npz
+singularity run --bind /data/bach/Jaime/nnunet_guillaume/nnUNet_74subs:/opt/nnunet_resources --nv docker://jaimebarran/nnunet:0.1.0 nnUNetv2_train 074 3d_fullres 2 --npz
