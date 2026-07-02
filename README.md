@@ -8,7 +8,7 @@ It includes:
 - Inference and evaluation scripts  
 - Atlas registration and construction scripts
 
-Pretrained weights (`Task313_Eye`) are available on **[Zenodo](https://doi.org/10.5281/zenodo.13325369)** and can be installed into any nnU-Net environment, or used directly via the ready-to-use [Docker image](https://hub.docker.com/repository/docker/jaimebarran/fw_gear_aeye).
+Pretrained weights (`Task313_Eye`) are available on **[Zenodo](https://doi.org/10.5281/zenodo.13325369)** and can be installed into any nnU-Net environment, or used directly via the ready-to-use [Docker image](https://hub.docker.com/r/jaimebarran/fw_gear_aeye).
 
 ---
 
